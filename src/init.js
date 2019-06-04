@@ -41,11 +41,53 @@ $(document).ready(function() {
 
   });
 
-  // MOUSEOVER
-  $('body').on('mouseout', '.fadingDancer', function(event) {
-    
-    $(this).attr('class', 'increase fadingDancer'); 
+  // INTERACT
+  $('.addInteractButton').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length - 1; i++) {
+      for (var j = i + 1; j < window.dancers.length; j++) {
+
+        var xdist = Math.pow((window.dancers[i].left - window.dancers[j].left), 2);
+        var ydist = Math.pow((window.dancers[i].top - window.dancers[j].top), 2);
+        if ((xdist + ydist) * 0.5 < 300) {
+          window.dancers[i].interact(window.dancers[j]);
+          // window.dancers[i].lineUp();
+          
+        }
+      }
+    }
+
   });
+
+
+  $('body').on({
+    mouseenter: function () {
+      $(this).attr('class', 'increase fadingDancer');
+    },
+    mouseleave: function () {
+      $(this).removeAttr('class', 'increase');
+      $(this).attr('class', 'fadingDancer');
+    }
+  }, '.fadingDancer');
+
+  $('body').on({
+    mouseenter: function () {
+      $(this).attr('class', 'increase dancer');
+    },
+    mouseleave: function () {
+      $(this).removeAttr('class', 'increase');
+      $(this).attr('class', 'dancer');
+    }
+  }, '.dancer');
+
+  $('body').on({
+    mouseenter: function () {
+      $(this).attr('class', 'increase breakDancer');
+    },
+    mouseleave: function () {
+      $(this).removeAttr('class', 'increase');
+      $(this).attr('class', 'breakDancer');
+    }
+  }, '.breakDancer');
 
 
 });
