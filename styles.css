@@ -25,3 +25,21 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.fadingDancer{
+  border:10px solid blue;
+  border-radius:10px;
+  position:absolute;
+}
+.breakDancer{
+  border:10px solid pink;
+  border-radius:10px;
+  position:absolute;
+}
+
+.increase{
+  border: 50px solid black;
+}
+/*.addFadingDancerButton{
+  padding:5px 12px;
+  float:right;
+}*/
